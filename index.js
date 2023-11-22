@@ -26,6 +26,21 @@ app.get('/node', (req, res) => {
     res.sendFile(__dirname + '/content.html')
 });
 
+const user = function (a, b, callback) {
+    setTimeout(() => {
+        callback(null, a + b);
+    }, 5000);
+};
+
+user(10, 5, (error, result) => {
+    if (error) {
+        console.error(error);
+    } else {
+        console.log(result);
+    }
+});
+
+
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 });
